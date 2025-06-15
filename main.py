@@ -11,3 +11,8 @@ async def read_root():
 async def read_time():
     current_time = datetime.now().strftime("%H:%M:%S")
     return {"current_time": current_time}
+
+@app.get("/dashboard")
+async def read_dashboard():
+    with open('dashboard.html') as f:
+        return f.read()
